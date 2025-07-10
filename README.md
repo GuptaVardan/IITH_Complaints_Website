@@ -6,24 +6,27 @@ This is a web application for students and residents of IIT Hyderabad to easily 
 
 - **Google Authentication**: Only users with an `@iith.ac.in` email can log in.
 - **Dashboard**: Submit complaints about various hostel and campus issues.
+- **Automated Email Notifications**: When a user files a complaint, an automated email is sent to the respective authority using Google Apps Script. When a complaint is marked as resolved, a confirmation email is also sent to the user and authority.
 - **Emergency Contacts**: Quick access to important helpline numbers.
-- **My Issues**: View and manage your submitted complaints.
+- **My Issues**: View and manage your submitted complaints, and mark them as resolved.
 - **Report Suggestions**: Submit suggestions for improvements.
 - **About Us**: Information about the website creators.
 
 ## How It Works
 
 1. **Authentication**: Users must log in using their IITH Google account. Non-IITH emails are denied access.
-2. **Complaint Submission**: After login, users can submit complaints by selecting the issue type, hostel, and providing details.
-3. **Emergency Services**: Users can view and copy emergency contact numbers.
-4. **View My Issues**: Users can see a list of their submitted complaints and their statuses.
-5. **Suggestions**: Users can submit suggestions for improvements, which are stored in the database.
-6. **Logout**: Users can securely log out of their session.
+2. **Complaint Submission**: After login, users can submit complaints by selecting the issue type, hostel, and providing details. Upon submission, an automated email is sent to the relevant authority using Google Apps Script.
+3. **Mark as Resolved**: Users can mark their complaints as resolved in the "My Issues" section. When marked as resolved, a confirmation email is sent to both the user and the authority.
+4. **Emergency Services**: Users can view and copy emergency contact numbers.
+5. **View My Issues**: Users can see a list of their submitted complaints and their statuses.
+6. **Suggestions**: Users can submit suggestions for improvements, which are stored in the database.
+7. **Logout**: Users can securely log out of their session.
 
 ## Technology Stack
 
 - **Frontend**: Next.js, React, Tailwind CSS
 - **Backend/Database**: Firebase Authentication & Firestore
+- **Automated Email**: Google Apps Script integration for sending emails to authorities and users (already deployed and integrated)
 - **Notifications**: react-toastify
 
 ---
@@ -74,6 +77,7 @@ yarn dev
 - After login, you are redirected to the dashboard.
 - Fill in your details, select the issue type, hostel, and describe your problem.
 - Submit the form to log your complaint.
+- **Automated Email**: Upon submission, an email is automatically sent to the relevant authority.
 
 ### 3. Emergency Services
 
@@ -85,6 +89,7 @@ yarn dev
 
 - Go to **My Issues** to see all complaints you have submitted.
 - View the status of each complaint.
+- **Mark as Resolved**: You can mark a complaint as resolved. When you do, a confirmation email is sent to both you and the authority.
 
 ### 5. Report Suggestions
 
@@ -119,6 +124,7 @@ yarn dev
 
 - Only IITH users can access the platform.
 - All complaints and suggestions are stored in Firestore.
+- Automated emails are sent to authorities and users for complaint submission and resolution (no setup required by the user).
 - The UI is responsive and works on both desktop and mobile devices.
 
 ---
@@ -127,6 +133,7 @@ yarn dev
 
 - If you face issues with authentication, ensure your Firebase project allows Google sign-in and your credentials are correct.
 - For database errors, check your Firestore rules and configuration.
+- For email issues, contact the project maintainer if automated emails are not being sent.
 
 ---
 
